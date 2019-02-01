@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: {{ .ServiceName }}
-        image: docker.io/webdeva/{{ .ServiceName }}:{{ .Release }}
+        image: docker.io/juchen/{{ .ServiceName }}:{{ .Release }}
         imagePullPolicy: Always
         ports:
         - containerPort: 8000

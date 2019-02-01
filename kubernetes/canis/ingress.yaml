@@ -12,7 +12,7 @@ spec:
     serviceName: {{ .ServiceName }}
     servicePort: 80
   rules:
-  - host: advent.test
+  - host: canis.test
     http:
       paths:
       - path: /
