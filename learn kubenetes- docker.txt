@@ -1,0 +1,26 @@
+git@github.com:jusongchen/canis.git
+
+gcloud container clusters  get-credentials canis-1     --zone us-east1-b
+
+docker build -t gcr.io/core-1-190918/hello-node:v1    $PWD
+
+gcloud docker -- push gcr.io/core-1-190918/hello-node:v1
+
+kubectl run hello-node --image=gcr.io/core-1-190918/hello-node:v1 --port=8080
+
+kubectl expose deployment hello-node --type="LoadBalancer"
+
+#get external ip
+kubectl get service hello-node --watch
+
+curl http://34.73.73.19:8080/
+
+kubectl scale deployment hello-node --replicas=4
+kubectl get deployment
+
+
+#list cluster
+gcloud container clusters list |grep canis
+#stop cluster 
+gcloud container clusters resize canis-1 --size=0 --zone=us-east1-b
+

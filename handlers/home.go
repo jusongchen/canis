@@ -13,8 +13,9 @@ func home(buildTime, commit, release string) http.HandlerFunc {
 			BuildTime string `json:"buildTime"`
 			Commit    string `json:"commit"`
 			Release   string `json:"release"`
+			Message   string `json:"message"`
 		}{
-			buildTime, commit, release,
+			buildTime, commit, release, "Hello CRM Infra!",
 		}
 
 		body, err := json.Marshal(info)
