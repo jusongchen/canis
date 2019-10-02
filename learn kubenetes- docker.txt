@@ -24,3 +24,9 @@ gcloud container clusters list |grep canis
 #stop cluster 
 gcloud container clusters resize canis-1 --size=0 --zone=us-east1-b
 
+
+
+#canis
+kubectl run canis --image=docker.io/juchen/canis:0.0.1 --port=8081
+kubectl expose deployment canis --type="LoadBalancer"
+kubectl get service canis --watch
