@@ -44,7 +44,7 @@ func main() {
 			log.Printf("%v", err)
 		}
 	}()
-	log.Print("The service is ready to listen and serve.")
+	log.Printf("The service is ready to listen and serve on %s.",srv.Addr)
 
 	select {
 	case killSignal := <-interrupt:

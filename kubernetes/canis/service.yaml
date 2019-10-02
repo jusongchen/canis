@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .ServiceName }}
+  name: canisweb
   labels:
-    app: {{ .ServiceName }}
+    app: canis
 spec:
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8000
-    name: http
   selector:
-    app: {{ .ServiceName }}
+    app: canis
+    tier: web
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: "YOUR.IP.ADDRESS.HERE"

@@ -15,7 +15,7 @@ func home(buildTime, commit, release string) http.HandlerFunc {
 			Release   string `json:"release"`
 			Message   string `json:"message"`
 		}{
-			buildTime, commit, release, "Hello CRM Infra!",
+			buildTime, commit, release, "Hello DBQ!",
 		}
 
 		body, err := json.Marshal(info)
