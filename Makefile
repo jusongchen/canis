@@ -2,7 +2,7 @@ PROJECT?=github.com/jusongchen/canis
 APP?=canis
 PORT?=8000
 
-RELEASE?=0.0.1
+RELEASE?=1.0.1
 COMMIT?=$(shell git rev-parse --short HEAD)
 BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
 DOCKERHUBUSER?=juchen

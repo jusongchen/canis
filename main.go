@@ -21,7 +21,8 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		log.Fatal("Port is not set.")
+		port = "8080"
+		log.Print("env PORT is not set, using default port 8080.")
 	}
 
 	r := handlers.Router(version.BuildTime, version.Commit, version.Release)

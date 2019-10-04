@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: canis-app
-        image: docker.io/juchen/canis:0.0.1
+        image: docker.io/juchen/canis:1.0.1
         ports:
         - containerPort: 8080
