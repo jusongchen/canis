@@ -5,8 +5,43 @@ A starter app which is kubernetes-ready
 
 
 
+
+
  
 # Helm Chart deployment notes
+
+
+## kubernetes
+Kubectl cmd 
+
+### Get cluster-info
+kubectl cluster-info
+
+### Show config:
+kubectl config view
+### contexts
+kubectl config get-contexts                          # display list of contexts 
+kubectl config current-context                       # display the current-context
+kubectl config use-context my-cluster-name           # set the default context to my-cluster-name
+
+## Install and config minikube
+
+Known issue:
+
+Minikube start did not work when Cisco Any Connect VPN is ON
+Launch minikube with debug info:
+
+minikube start --alsologtostderr -v=8
+
+The workaround is to use hyperkit
+Launch minikube with hyperkit as the vm-driver
+
+minikube delete
+minikube start --vm-driver=hyperkit
+Set default vm-driver
+minikube config set vm-driver hyperkit
+minikube config set vm-driver 
+
 
 
 kubectl create -f clusterrole.yaml
@@ -34,6 +69,10 @@ tiller-deploy-77855d9dcf-xvmt4     1/1     Running   0          104s
 ## install app
 
 helm install  ./canis-helm-chart
+
+check chart with dry run
+helm install --debug --dry-run ./canis-helm-chart
+
 ### check pod status
 kubectl get pod
 ### check app log
